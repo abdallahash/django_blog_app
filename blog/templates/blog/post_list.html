@@ -1,19 +1,13 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SE Blog</title>
-</head>
-<body>
-    <h1>Self Engineered</h1>
+{% extends 'blog/base.html' %}
 
+{% block content %}
     {% for post in posts %}
-        <div>
-            <p>Published on: {{ post.published_date }}</p>
-            <h2><a href="{% url 'post_detail' pk=post.pk  %}">{{ post.title }}</a></h2>
-            <p>{{ post.text | linebreaksbr }}</p>
+    <div class="post">
+        <div class="date">
+            <p>{{ post.published_date }}</p>
         </div>
+        <h2><a href="{% url 'post_detail' pk=post.pk  %}">{{ post.title }}</a></h2>
+        <p>{{ post.text | linebreaksbr }}</p>
+    </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

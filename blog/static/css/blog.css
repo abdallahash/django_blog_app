@@ -1,0 +1,31 @@
+.page-header {
+    background-color: cornflowerblue;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1 a{
+    color: #ffffff; 
+    font-size: 34pt;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Tangerine', 'Inconsolata', 'Droid Sans', serif;
+    font-size: 46px;
+}
+
+.date{
+    color: gray;
+    margin-top: 20px;
+}
+
+.post{
+    margin-bottom: 70px;
+}
+.post h2 a{
+    color: #000000
+}
+.post h2 a:visited{
+    color: midnightblue;
+}
