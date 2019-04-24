@@ -9,5 +9,6 @@
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.text | linebreaksbr }}</p>
+        <a href="{% url 'post_edit' pk=post.pk %}"><i class="far fa-edit" style="color:cornflowerblue; float: right;"></i></a>
     </div>
 {% endblock %}

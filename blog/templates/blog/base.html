@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <title>SE Blog</title>
 </head>
 <body>
     <div class="page-header">
-        <h1><a href="{% url 'post_list' %}">Self Engineered Blog</a></h1>
+        <a href="{% url 'post_list' %}"><h1>Self Engineered Blog</h1></a>
+        <div class="page-header-right">
+            <a href="/admin">Admin</a>
+            <a href="{% url 'post_new' %}">New</a>
+        </div>
     </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
+
                 
                 {% block content %}
                 {% endblock %}

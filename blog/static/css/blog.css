@@ -1,18 +1,23 @@
 .page-header {
     background-color: cornflowerblue;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 15px 20px 15px 35px;
+    overflow: hidden;
 }
 
-.page-header h1 a{
+.page-header a{
     color: #ffffff; 
-    font-size: 34pt;
+    font-size: 24pt;
+    text-decoration: none;
+    float: left;
+    padding: 14px 18px;
+    text-align: center;
     text-decoration: none;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, a {
     font-family: 'Tangerine', 'Inconsolata', 'Droid Sans', serif;
-    font-size: 46px;
+    font-size: 40px;
 }
 
 .date{
@@ -39,4 +44,11 @@ h1, h2, h3, h4 {
 }
 .post-form-blog .btn-primary{
     float: right;
+}
+
+.page-header-right a {
+    float: right;
+}
+.page-header-right a:hover{
+    color: hotpink;
 }
