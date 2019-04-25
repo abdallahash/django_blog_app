@@ -22,7 +22,6 @@ def post_new(request):
             #False commit means saving without adding the stuff to the database.
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -37,10 +36,19 @@ def post_edit(request, pk):
         if form.is_valid():
             post= form.save(commit=False)   
             post.author = request.user 
-            post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
         stuff_for_frontend = {'form': form}
     return render(request, 'blog/post_edit.html', stuff_for_frontend)
+
+def post_draft_list(request):
+    draft_posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')
+    stuff_for_frontend = {'draft_posts': draft_posts}
+    return render(request, 'blog/post_draft_list.html', stuff_for_frontend)
+
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post_detail', pk=pk)
