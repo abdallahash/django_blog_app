@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% block title %} drafts {% endblock %}
+
 {% block content %}
     {% for post in draft_posts %}
     <div class="post">

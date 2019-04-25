@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views 
+# from django.contrib.auth import views as auth_views 
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -16,5 +17,7 @@ urlpatterns = [
     #selfengineered/drafts
     path('drafts/', views.post_draft_list, name='post_draft_list'),
 
-    path('post/<int:pk>/publish/', views.post_publish, name='post_publish')
+    path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
+
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
