@@ -19,5 +19,5 @@ urlpatterns = [
 
     path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
 
-    path('accounts/', include('django.contrib.auth.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
 ]
