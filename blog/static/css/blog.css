@@ -52,3 +52,7 @@ h1, h2, h3, h4, a {
 .page-header-right a:hover{
     color: hotpink;
 }
+
+.comment {
+    margin: 20px 0x 20px 20px;
+}

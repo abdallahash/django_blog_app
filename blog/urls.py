@@ -19,5 +19,5 @@ urlpatterns = [
 
     path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
 
-    #path('accounts/', include('django.contrib.auth.urls')),
+    path('post/<int:pk>/comment/', views.comment_to_post, name='comment_to_post'),
 ]
