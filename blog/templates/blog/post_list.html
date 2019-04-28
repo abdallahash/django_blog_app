@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load markdownify %}
+
 {% block title %} SE Blog {% endblock %}
 
 {% block content %}
@@ -9,7 +11,7 @@
             <p>{{ post.published_date|date:'d-m-Y' }}</p>
         </div>
         <h2><a href="{% url 'post_detail' pk=post.pk  %}">{{ post.title }}</a></h2>
-        <p>{{ post.text | linebreaksbr }}</p>
+        <p>{{ post.text | markdown | safe | linebreaksbr }}</p>
         <a href="{% url 'post_detail' pk=post.pk %}" class="smaller" >Comments: {{ post.approved_comments.count }}</a></h5>
     </div>
     {% endfor %}
