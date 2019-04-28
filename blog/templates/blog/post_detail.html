@@ -21,20 +21,27 @@
         {% if not post.published_date %}
             <a href="{% url 'post_publish' pk=post.pk %}"><button class="btn btn-primary">Publish</button></a>
         {% endif %}
-        </div>
+    </div>
 
         <!-- Comment section -->
         <hr>
 
         <a href="{% url 'comment_to_post' pk=post.pk %}"><button class="btn btn-secondary">comment</button></a>
         {% for comment in post.comments.all %}
-            <div class="comment">
-                <div class="date">
-                    {{ comment.created_date }}
+            {% if user.is_authenticated or comment.approved %}
+                <div class="comment">
+                    <div class="date">
+                        {{ comment.created_date }}
+                    </div>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.text}}</p>
+                    {% if not comment.approved and user.is_superuser %}
+                    <a href="{% url 'approve_comment' pk=comment.pk %}"><small><i class="fas fa-check smaller"></i></small></a>
+                    <a href="{% url 'remove_comment' pk=comment.pk %}"><small><i class="far fa-trash-alt smaller"></i></small></a>
+                    {% endif %}
+                    
                 </div>
-                <strong>{{ comment.author }}</strong>
-                <p>{{ comment.text}}</p>
-            </div>
+            {% endif %}
         {% empty %}
             <p>No comments yet...</p>
         {% endfor %}
