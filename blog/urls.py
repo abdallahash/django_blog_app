@@ -14,6 +14,8 @@ urlpatterns = [
     #selfengineered/post/2/edit/
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 
+    path('post/<int:pk>/delete/', views.post_delete, name='post_delete'),
+
     #selfengineered/drafts
     path('drafts/', views.post_draft_list, name='post_draft_list'),
 
