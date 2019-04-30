@@ -27,7 +27,7 @@ DEBUG = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['selfengineeredblog.herokuapp.com']
 
 LOGIN_REDIRECT_URL = 'post_list'
 
